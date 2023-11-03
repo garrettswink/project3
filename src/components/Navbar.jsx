@@ -7,15 +7,11 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        Garrett's Portfolio
+        Finance Tracker
       </Link>
 
       <ul>
-        <CustomLink to="/">About</CustomLink>
-        <CustomLink to="/portfolio">Portfolio</CustomLink>
-        <CustomLink to="/contact">Contact</CustomLink>
-        <CustomLink to="/resume">Resume</CustomLink>
-       
+        <CustomLink to="/">Logout</CustomLink>
       </ul>
     </nav>
   );
