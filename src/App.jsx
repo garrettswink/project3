@@ -1,6 +1,7 @@
 // Package Imports
 import { Route, Routes } from "react-router-dom"
 
+
 // Import Style
 import "./App.css"
 
@@ -19,6 +20,8 @@ function App() {
   <>
       {/* Components */}
       <Navbar />
+
+
       <Footer />
       {/* Routes */}
       <div className="container">

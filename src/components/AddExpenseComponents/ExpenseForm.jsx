@@ -1,5 +1,6 @@
 // Imports
 import { useState } from "react";
+import "./ExpenseForm.css"
 
 // Export Function
 export function ExpenseForm(props) {
@@ -104,7 +105,7 @@ export function ExpenseForm(props) {
         </div>
 
 {/* Buttons */}
-        <div className="new-expense-input">
+        <div className="new-expense-action">
           <button type="button" onClick={props.onCancel}>
             Cancel
           </button>
