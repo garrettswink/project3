@@ -1,6 +1,6 @@
-import {Chart} from "../Chart/Chart";
+import {Chart} from "../ChartComponents/Chart";
 
-export function ExpensesChart(props) {
+export function ExpenseChart(props) {
     const chartDataPoints = [
         {label: "Jan", value: 0},
         {label: "Feb", value: 0},

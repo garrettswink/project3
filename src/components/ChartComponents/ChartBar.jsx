@@ -1,4 +1,4 @@
-import "./CharBar.css"
+import "./ChartBar.css"
 
 export function ChartBar(props) {
     let fillHeight = "0%";

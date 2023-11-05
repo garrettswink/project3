@@ -1,5 +1,6 @@
 
 import { AddExpense } from "../components/AddExpenseComponents/AddExpense"
+import { ExpenseDisplay } from "../components/ExpenseHistoryComponents/ExpenseDisplay";
 import "../styles/Tracker.css";
 
 export default function Tracker() {
@@ -9,7 +10,8 @@ export default function Tracker() {
       <h1>Tracker</h1>
       </div>
       <div className="parent-container">
-      <AddExpense></AddExpense>
+    <AddExpense/>
+    <ExpenseDisplay/>
       </div>
     </>
   );

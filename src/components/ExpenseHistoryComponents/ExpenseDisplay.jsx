@@ -1,9 +1,6 @@
 // React Import
 import {useState} from "react";
 
-// React Imports
-import {useState} from "react";
-
 // File Import
 import './ExpenseDisplay.css'
 
