@@ -1,15 +1,15 @@
 // File Imports
-import "./ExpensesList.css"
+import "./ExpenseList.css"
 
 // Component Imports
 import {ExpenseItem} from "./ExpenseItem";
 
 // Returns Filtered Expense Itmes
-export function ExpensesList(props) {
+export function ExpenseList(props) {
 
     // If the array is empry, return the JSX output
     if (props.items.length === 0) {
-        return <h2 className="expenses-list-err">No Expenses</h2>
+        return <h2 className="expense-list-err">No Expenses</h2>
     }
 
     return (
