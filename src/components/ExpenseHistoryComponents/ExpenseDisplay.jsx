@@ -8,5 +8,6 @@ import './ExpenseDisplay.css'
 import {Card} from "../CardComponents/Card"
 // List
 // Chart
-// Filter 
+// Filter
+import {ExpenseFilter} from "./ExpenseFilter";
 
