@@ -23,8 +23,8 @@ export function ExpenseDisplay (props) {
 
     // Returns filered list per condition.
     // Passed as props.item in ExpenseList
-    const filteredExpense = props.items.filter(e => {
-        return e.date.getFullYear().toString() === enteredDate
+    const filteredExpense = props.items.filter(event => {
+        return event.date.getFullYear().toString() === enteredDate
     });
 
 return (
