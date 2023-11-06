@@ -12,6 +12,7 @@ import Footer from "./components/Footer"
 // Import Pages
 import Login from "./pages/Login"; 
 import Tracker from "./pages/Tracker";
+import History from "./pages/History";
 
 function App() {
   
@@ -23,11 +24,13 @@ function App() {
 
 
       <Footer />
+      
       {/* Routes */}
       <div className="container">
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/tracker" element={<Tracker />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </div>
     </>

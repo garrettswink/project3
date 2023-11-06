@@ -52,6 +52,7 @@ export function ExpenseForm(props) {
 {/* Expense Name Input */}
         <div className="new-expense-input">
           <label htmlFor="">Expense</label>
+         
           <input
             id="expense-name"
             type="text"
@@ -63,6 +64,7 @@ export function ExpenseForm(props) {
 {/* Expense Category Input */}
         <div className="new-expense-input">
           <label htmlFor="">Category</label>
+          
           <select
             id="expense-category"
             value={enteredCategory}
@@ -81,6 +83,7 @@ export function ExpenseForm(props) {
 {/* Expense Amount Input */}
         <div className="new-expense-input">
           <label htmlFor="">Amount</label>
+         
           <input
             id="expense-amount"
             type="number"
@@ -94,6 +97,7 @@ export function ExpenseForm(props) {
 {/* Expense Date Input */}
         <div className="new-expense-input">
           <label htmlFor="">Date</label>
+         
           <input
             id="expense-date"
             type="date"
@@ -106,10 +110,10 @@ export function ExpenseForm(props) {
 
 {/* Buttons */}
         <div className="new-expense-action">
-          <button type="button" onClick={props.onCancel}>
-            Cancel
-          </button>
+          
           <button type="submit">Add Expense</button>
+          <button type="button" onClick={props.onCancel}>Cancel</button>
+        
         </div>
       </div>
     </form>

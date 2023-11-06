@@ -1,41 +1,11 @@
 
 import { AddExpense } from "../components/AddExpenseComponents/AddExpense"
-import { ExpenseDisplay } from "../components/ExpenseHistoryComponents/ExpenseDisplay";
-import "../styles/Tracker.css";
 
-const seedData = [
-  {
-      id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-  },
-  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-  {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-  },
-  {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-  },
-];
+import {useState} from "react";
 
 export default function Tracker() {
 
-  const [expense, setExpense] = useState(seedData);
-  const addExpenseHandler = (expense) => {
-
-    setExpense((prevExpense) => {
-        return [expense, ...prevExpense]
-    });
-};
-
-
+ 
   return (
 
     <>
@@ -43,8 +13,8 @@ export default function Tracker() {
       <h1>Tracker</h1>
       </div>
       <div className="parent-container">
-    <AddExpense onAddExpense={addExpenseHandler}/>
-    <ExpenseDisplay></ExpenseDisplay>
+    <AddExpense />
+  
     
       </div>
     </>

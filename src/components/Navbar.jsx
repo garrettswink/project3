@@ -9,7 +9,7 @@ export default function Navbar() {
       <Link to="/" className="site-title">
         Finance Tracker
       </Link>
-
+    
       <ul>
         <CustomLink to="/">Logout</CustomLink>
       </ul>
