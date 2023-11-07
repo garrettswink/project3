@@ -1,0 +1,33 @@
+{
+    "name": "FinTrack ",
+    "short_name": "FinTrack ",
+    "theme_color": "#43281C",
+    "display": "standalone",
+    "background_color": "#EFEFEF",
+    "start_url": "/",
+    "scope": "/",
+    "description": "FinTrack is the ultimate personal finance tracker app designed to empower you with the tools and insights needed to take control of your financial life. Whether you're a budgeting novice or a seasoned financial pro, this app provides a seamless and user-friendly experience to help you manage your money, achieve your financial goals, and build a secure future..",
+    "icons": [
+        {
+            "src": "images/icons/icon.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },       
+        {
+            "src": "images/icons/icon-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screen1.jpg",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "images/screen2.jpg",
+            "type": "image/jpeg"
+        }
+    ]
+}

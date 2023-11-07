@@ -1,0 +1,21 @@
+{
+  "name": "fintrack",
+  "version": "1.0.0",
+  "description": "FinTrack is the ultimate personal finance tracker app designed to empower you with the tools and insights needed to take control of your financial life. Whether you're a budgeting novice or a seasoned financial pro, this app provides a seamless and user-friendly experience to help you manage your money, achieve your financial goals, and build a secure future.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@simplewebauthn/server": "^8.3.5",
+    "base64url": "^3.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "jwt-js-decode": "^1.8.2",
+    "lowdb": "^6.1.1"
+  }
+}
