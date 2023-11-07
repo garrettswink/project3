@@ -5,9 +5,11 @@ import { Route, Routes } from "react-router-dom"
 // Import Style
 import "./App.css"
 
+
 // Import Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
+
 
 // Import Pages
 import Login from "./pages/Login"; 
