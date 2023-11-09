@@ -40,7 +40,6 @@ return (
             isEditing === true ?
             <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} 
             onCancel={stopEditingHandler} /> :
-
             <button onClick={startEditingHandler}>Add Expense</button>
         }
     </div>

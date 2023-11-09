@@ -1,5 +1,5 @@
 // Package Imports
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, Link } from "react-router-dom"
 
 
 // Import Style
@@ -14,7 +14,7 @@ import Footer from "./components/Footer"
 // Import Pages
 import Login from "./pages/Login"; 
 import Tracker from "./pages/Tracker";
-import History from "./pages/History";
+import Transactions from "./pages/Transactions";
 
 function App() {
   
@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/tracker" element={<Tracker />} />
-          <Route path="/history" element={<History />} />
+          <Route path="/transactions" element={<Transactions />} />
         </Routes>
       </div>
     </>

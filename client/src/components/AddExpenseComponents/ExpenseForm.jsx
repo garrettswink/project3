@@ -1,6 +1,7 @@
 // Imports
 import { useState } from "react";
-import "./ExpenseForm.css"
+import { useNavigate } from "react-router-dom";
+import "./ExpenseForm.css";
 
 // Export Function
 export function ExpenseForm(props) {
@@ -9,8 +10,10 @@ export function ExpenseForm(props) {
   const [enteredCategory, setEnteredCategory] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
+  const [isFormValid, setIsFormValid] = useState(null); 
+  const navigate = useNavigate();
 
-// Set Event Handlers
+  // Set Event Handlers
   const expenseChangeHandler = (e) => {
     setEnteredExpense(e.target.value);
   };
@@ -27,95 +30,106 @@ export function ExpenseForm(props) {
     setEnteredDate(e.target.value);
   };
 
-//   Submit Handler
+  //   Submit Handler
   const submitHandler = (e) => {
     e.preventDefault();
 
-// Expense Data Object
-    const expenseData = {
-      expense: enteredExpense,
-      category: enteredCategory,
-      amount: +enteredAmount,
-      date: new Date(enteredDate),
+    if (!enteredExpense || !enteredCategory || !enteredAmount || !enteredDate) {
+      setIsFormValid('invalid');
+      return;
+    }
+
+    setIsFormValid('valid');
+
+  };
+  
+
+    // Message for invalid submission
+    const errorMessage = isFormValid === 'invalid' && (
+      <p>Error. Please fill in all form fields.</p>
+    );
+  
+    const navigateToTransactions = () => {
+      navigate('/transactions');
     };
 
-// Event Handlers Called By NewExpense as a Prop
-    props.onSaveExpenseData(expenseData);
-    props.onCancel();
-  };
+    // Button for a valid submission
+    const successButton = isFormValid === 'valid' && (
+      <button onClick={navigateToTransactions}>Success. Review Transactions</button>
+    );
 
   return (
-// Expense Form
-    <form onSubmit={submitHandler}>
-      <div className="new-expense-container">
+    <>
+      {/* // Expense Form */}
+      <form onSubmit={submitHandler}>
+        <div className="new-expense-container">
+          <div className="new-expense-input">
+            <label htmlFor="">Expense</label>
 
-{/* Expense Name Input */}
-        <div className="new-expense-input">
-          <label htmlFor="">Expense</label>
-         
-          <input
-            id="expense-name"
-            type="text"
-            value={enteredExpense}
-            onChange={expenseChangeHandler}
-          />
-        </div>
+            <input
+              id="expense-name"
+              type="text"
+              value={enteredExpense}
+              onChange={expenseChangeHandler}
+            />
+          </div>
 
-{/* Expense Category Input */}
-        <div className="new-expense-input">
-          <label htmlFor="">Category</label>
-          
-          <select
-            id="expense-category"
-            value={enteredCategory}
-            onChange={categoryChangeHandler}
-          >
-            <option value="">Select Category</option>
-            <option value="Bills">Bills</option>
-            <option value="Groceries">Groceries</option>
-            <option value="Subscription">Subscription</option>
-            <option value="Travel">Travel</option>
-            <option value="Leisure">Leisure</option>
-            <option value="Car Expense">Car Expense</option>
-          </select>
-        </div>
+          {/* Expense Category Input */}
+          <div className="new-expense-input">
+            <label htmlFor="">Category</label>
 
-{/* Expense Amount Input */}
-        <div className="new-expense-input">
-          <label htmlFor="">Amount</label>
-         
-          <input
-            id="expense-amount"
-            type="number"
-            min="0.01"
-            step="0.01"
-            value={enteredAmount}
-            onChange={amountChangeHandler}
-          />
-        </div>
+            <select
+              id="expense-category"
+              value={enteredCategory}
+              onChange={categoryChangeHandler}
+            >
+              <option value="">Select Category</option>
+              <option value="Bills">Bills</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Subscription">Subscription</option>
+              <option value="Travel">Travel</option>
+              <option value="Leisure">Leisure</option>
+              <option value="Car Expense">Car Expense</option>
+            </select>
+          </div>
 
-{/* Expense Date Input */}
-        <div className="new-expense-input">
-          <label htmlFor="">Date</label>
-         
-          <input
-            id="expense-date"
-            type="date"
-            min="2019-01-01"
-            max="2023-12-31"
-            value={enteredDate}
-            onChange={dateChangeHandler}
-          />
-        </div>
+          <div className="new-expense-input">
+            <label htmlFor="">Amount</label>
 
-{/* Buttons */}
-        <div className="new-expense-action">
-          
-          <button type="submit">Add Expense</button>
-          <button type="button" onClick={props.onCancel}>Cancel</button>
-        
+            <input
+              id="expense-amount"
+              type="number"
+              min="0.01"
+              step="0.01"
+              value={enteredAmount}
+              onChange={amountChangeHandler}
+            />
+          </div>
+
+          <div className="new-expense-input">
+            <label htmlFor="">Date</label>
+
+            <input
+              id="expense-date"
+              type="date"
+              min="2019-01-01"
+              max="2023-12-31"
+              value={enteredDate}
+              onChange={dateChangeHandler}
+            />
+          </div>
+
+          {/* Buttons */}
+          <div className="new-expense-action">
+            <button type="submit">Add Expense</button>
+            <button type="button" onClick={props.onCancel}>
+              Cancel
+            </button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+      {errorMessage}
+      {successButton}
+    </>
   );
 }

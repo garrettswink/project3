@@ -1,11 +1,8 @@
 
 import { AddExpense } from "../components/AddExpenseComponents/AddExpense"
 
-import {useState} from "react";
-
 export default function Tracker() {
-
- 
+  
   return (
 
     <>
