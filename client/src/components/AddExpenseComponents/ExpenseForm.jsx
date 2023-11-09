@@ -87,8 +87,8 @@ export function ExpenseForm(props) {
           <input
             id="expense-amount"
             type="number"
-            min="0.01"
-            step="0.01"
+            min="1.00"
+            step="1.00"
             value={enteredAmount}
             onChange={amountChangeHandler}
           />
