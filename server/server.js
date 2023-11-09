@@ -1,6 +1,9 @@
-const express = require ('express')
-const Low = require ('lowdb')
-const JSONFile = require ('lowdb/node')
+const express = require('express');
+const routes = require('./routes');
+const sequelize = require('./config/connection');
+
+// const Low = require ('lowdb')
+// const JSONFile = require ('lowdb/node')
 const bcrypt = require ('bcrypt')
 const url = require ('url')
 const jwtJsDecode = require ('jwt-js-decode')
@@ -16,13 +19,21 @@ const SimpleWebAuthnServer = require ('@simplewebauthn/server')
 
 // const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-const app = express()
-app.use(express.json())
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-const adapter = new JSONFile(__dirname + '/auth.json');
-const db = new Low(adapter);
-db.read();
-db.data ||= { users: [] }
+
+
+//lowdb code that needs to be replaced with 
+// const adapter = new JSONFile(__dirname + '/auth.json');
+// const db = new Low(adapter);
+// db.read();
+// db.data ||= { users: [] }
+
+// turn on connection to db and server
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+  });
 
 const rpID = "localhost";
 const protocol = "http";
@@ -35,11 +46,14 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-function findUser(email) {
-    const results = db.data.users.filter(u=>u.email==email);
-    if (results.length==0) return undefined;
-    return results[0];
-}
+// turn on routes
+app.use(routes);
+
+// function findUser(email) {
+//     const results = db.data.users.filter(u=>u.email==email);
+//     if (results.length==0) return undefined;
+//     return results[0];
+// }
 
 app.post("/auth/register", (req, res) => {
     var salt = bcrypt.genSaltSync(10);
